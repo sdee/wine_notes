@@ -1,0 +1,10 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  collation: utf8_general_ci
+  database: vino_development
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+  pool: 5
+  timeout: 5000
