@@ -1,8 +1,6 @@
-source 'http://rubygems.org'
-gem 'sinatra'
+gem "sinatra"
+gem "mysql2"
 gem "activerecord"
 gem "sinatra-activerecord"
-gem 'mysql2'
-gem 'json'
-gem 'rack-test'
-gem 'minitest'
+gem "rake"
+ 
