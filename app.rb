@@ -8,6 +8,28 @@ get '/' do
     "Hello, World!"
 end
 
+get '/tasting/:id' do
+    id = params[:id]
+    result = []
+    tasting = Tasting.find(id)
+    components = ['nose', 'berry', 'citrus', 'stonefruit', 'grassy', 'floral',
+                  'spicy', 'mineral', 'sweet', 'sour', 'woody', 'tannic',
+                  'body', 'balance', 'finish']
+
+
+a = []
+    components.each do |x|
+      d = Hash.new
+        d['axis'] = x
+        d['value'] = tasting[x]
+        a.push(d)
+    end
+
+result.push(a)
+
+    @json = result.to_json()
+end
+
 get '/new' do
   @tasting = Tasting.new
   erb :'new'
