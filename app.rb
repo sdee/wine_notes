@@ -14,6 +14,20 @@ get '/new' do
 end
 
 post '/tasting' do
-  Tasting.create(:sour => params[:sour])
+  Tasting.create(:nose => params[:nose],
+                  :berry => params[:berry],
+                  :citrus => params[:citrus],
+                  :stonefruit => params[:stonefruit],
+                  :grassy => params[:grassy],
+                  :floral => params[:floral],
+                  :spicy => params[:spicy],
+                  :mineral => params[:mineral],
+                  :sweet => params[:sweet],
+                  :sour => params[:sour],
+                  :woody => params[:woody],
+                  :tannic => params[:tannic],
+                  :body => params[:body],
+                  :balance => params[:balance],
+                  :finish => params[:finish])
   erb :'show'
 end
