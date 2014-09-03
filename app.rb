@@ -8,6 +8,11 @@ get '/' do
   "Hello, World!"
 end
 
+get '/new' do
+  @tasting = Tasting.new
+  erb :'new'
+end
+
 get '/tasting/:id' do
   id = params[:id]
   result = []
@@ -27,11 +32,6 @@ get '/tasting/:id' do
     result.push(a)
 
     @json = result.to_json()
-  end
-
-  get '/tasting/new' do
-    @tasting = Tasting.new
-    erb :'new'
   end
 
   post '/tasting' do
