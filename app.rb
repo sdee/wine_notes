@@ -16,7 +16,6 @@ get '/tasting/:id' do
                   'spicy', 'mineral', 'sweet', 'sour', 'woody', 'tannic',
                   'body', 'balance', 'finish']
 
-
 a = []
     components.each do |x|
       d = Hash.new
@@ -36,7 +35,7 @@ get '/new' do
 end
 
 post '/tasting' do
-  Tasting.create(:nose => params[:nose],
+  @tasting = Tasting.create(:nose => params[:nose],
                   :berry => params[:berry],
                   :citrus => params[:citrus],
                   :stonefruit => params[:stonefruit],
