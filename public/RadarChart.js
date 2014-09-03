@@ -11,7 +11,7 @@
 var RadarChart = {
   draw: function(id, d, options){
   var cfg = {
-	 radius: 5,
+	 radius: 4,
 	 w: 600,
 	 h: 600,
 	 factor: 1,
@@ -54,6 +54,7 @@ var RadarChart = {
 
 	//Circular segments
 	for(var j=0; j<cfg.levels-1; j++){
+    console.log("j "+j);
 	  var levelFactor = cfg.factor*radius*((j+1)/cfg.levels);
 	  g.selectAll(".levels")
 	   .data(allAxis)
