@@ -161,7 +161,6 @@ var RadarChart = {
 	});
 	series=0;
 
-
 	d.forEach(function(y, x){
 	  g.selectAll(".nodes")
 		.data(y).enter()
@@ -212,6 +211,7 @@ var RadarChart = {
 		.text(function(j){return Math.max(j.value, 0)});
 
 	  series++;
+
 	});
 	//Tooltip
 	tooltip = g.append('text')
