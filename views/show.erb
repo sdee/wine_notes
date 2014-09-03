@@ -54,8 +54,6 @@ d3.json("http://localhost:4567/tasting/"+<%=@tasting.id%>, function(error, json)
   //Call function to draw the Radar chart
   //Will expect that data is in %'s
   RadarChart.draw("#chart", d, mycfg);
-
-
 });
 
 //Options for the Radar chart, other than default
