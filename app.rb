@@ -15,7 +15,7 @@ get '/tasting/:id' do
   components = ['nose', 'berry', 'citrus', 'stonefruit', 'grassy', 'floral',
     'spicy', 'mineral', 'sweet', 'sour', 'woody', 'tannic',
     'body', 'balance', 'finish']
-    
+
     a = []
     components.each do |x|
       d = Hash.new
@@ -29,7 +29,7 @@ get '/tasting/:id' do
     @json = result.to_json()
   end
 
-  get '/new' do
+  get '/tasting/new' do
     @tasting = Tasting.new
     erb :'new'
   end
