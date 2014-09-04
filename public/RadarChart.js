@@ -42,6 +42,7 @@ var RadarChart = {
 	var Format = d3.format('d');
 	d3.select(id).select("svg").remove();
 
+//try adding enter() here
 	var g = d3.select(id)
 			.append("svg")
 			.attr("width", cfg.w+cfg.ExtraWidthX)

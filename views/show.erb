@@ -37,7 +37,6 @@ var d; // a global
 
 d3.json("http://localhost:4567/tasting/"+<%=@tasting.id%>, function(error, json) {
   console.log("http://localhost:4567/tasting/"+<%=@tasting.id%>);
-  if (error) return console.warn(error);
   d = json;
   console.log(d);
   //Options for the Radar chart, other than default
