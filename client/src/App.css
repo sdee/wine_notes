@@ -1,0 +1,34 @@
+.ctrl{
+  float: none;
+  margin: 3px auto;
+  padding: 3px;
+  text-align:center;
+}​
+
+.btn {
+  padding: 3px;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+html,
+body {
+  background: #333;
+  border: 0px;
+  width: 100%;
+  height: 100%;
+}
+html {
+  padding: 50px;
+  display: table;
+}
+body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
