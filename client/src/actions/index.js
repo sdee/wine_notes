@@ -1,56 +1,29 @@
 /*
  * action types
  */
-export const SET_FILTER = 'SET_FILTER';
-
-export const NEXT_QUESTION = 'NEXT_QUESTION';
-export const SHOW_ANSWER = 'SHOW_ANSWER';
-
-export const LOAD_QUIZ = 'LOAD_QUIZ';
-export const LOAD_QUIZ_SUCCESS = 'LOAD_QUIZ_SUCCESS';
-export const LOAD_QUIZ_ERROR = 'LOAD_QUIZ_ERROR';
-
-export const SUBMIT_ANSWER = 'SUBMIT_ANSWER';
+export const SET_COMPONENT = 'SET_COMPONENT';
+export const LOAD_TASTING_SUCCESS = 'LOAD_TASTING_SUCCESS';
 
 /*
  * action creators
  */
-export function setFilter(filter, status) {
-	return { type: SET_FILTER, filter, status };
+export function setComponent (component, status) {
+	return { type: SET_COMPONENT, component, status };
 }
 
-export function nextQuestion() {
-	return { type: NEXT_QUESTION };
-}
-
-export function showAnswer() {
-	return { type: SHOW_ANSWER };
-}
-
-export function submitAnswer(userAnswer, ignoreAccents) {
-	return { type: SUBMIT_ANSWER, userAnswer, ignoreAccents };
-}
-
-export function loadQuizError(error) {
-  return { error, type: LOAD_QUIZ_ERROR };
-}
-
-export function loadQuizSuccess(quiz) {
+export function loadTastingSuccess(tasting) {
   return dispatch => {
-    dispatch({ type: LOAD_QUIZ_SUCCESS, quiz });
+    dispatch({ type: LOAD_TASTING_SUCCESS, tasting });
   };
 }
 
-export function loadQuizRequest() {
-  return { type: LOAD_QUIZ };
-}
-
-export function loadQuiz() {
+//default all components to 0
+export function loadTasting() {
 	return (dispatch) =>
-		fetch(`api/quiz`, {
+		fetch(`api/tasting`, {
 			accept: 'application/json',
 		})
     .then(response => response.json())
-    .then(json => dispatch(loadQuizSuccess(json)))
+    .then(json => dispatch(loadTastingSuccess(json)))
 		.catch(error => { console.log('request failed', error); });
 }
