@@ -1,14 +1,14 @@
-const initialState = {
+	const initialState = {
 
-};
+	};
 
-const tasting = (state = initialState, action) => {
-	switch (action.type) {
+	const tasting = (state = initialState, action) => {
+		switch (action.type) {
 
-	default: {
-		return state;
+		default: {
+			return state;
+		}
 	}
-}
-};
+	};
 
-export default tasting;
+	export default tasting;
