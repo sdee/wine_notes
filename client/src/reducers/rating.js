@@ -1,7 +1,7 @@
 import { SET_RATING } from '../actions';
 
 const rating = (state = {}, action) => {
-	console.log("inside component");
+	console.log("inside reducer");
 	console.log(state);
 	switch (action.type) {
 		case SET_RATING: {

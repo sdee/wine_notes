@@ -2,22 +2,18 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import TasteGraph from '../components/TasteGraph';
 
-class Tasting extends Component {
-
-  componentDidMount() {
-    console.log("componentDidMount");
-    const { dispatch } = this.props;
+const mapStateToProps = (state) => {
+  return {
+    rating: state.rating
   }
-
-  render() {
-    return <TasteGraph {...this.props} />;
-  	
-  }
-
 }
 
-Tasting.propTypes = {
-	dispatch: PropTypes.func.isRequired
+const mapDispatchToProps = (dispatch) => {
+  return {
+    
+  }
 }
 
-export default connect(state => state.rating)(Tasting); //what does this do
+const Tasting = connect(mapStateToProps, mapDispatchToProps)(TasteGraph);
+
+export default Tasting;

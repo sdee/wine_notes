@@ -6,9 +6,9 @@ import Tasting from './containers/Tasting';
 function App() {
 	return (
 		<div className="App">
-		<Tasting/>
+		
 		<Panel header="Tasting with thought">
-
+		<Tasting/>
 		</Panel>
 		</div>
 		);

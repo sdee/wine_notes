@@ -15,9 +15,12 @@ const store = createStore(rootReducer, initializeState(),
 );
 
 function initializeState() {
-	let ratings = {};
+	let ratings = [];
 	wine_components.forEach(function(wc) { 
-		ratings[wc] = 0;
+		console.log("wc");
+		console.log(wc);
+
+		ratings.push({"name": wc, "quantity":0});
 	});
 	return {"rating": ratings};
 }
