@@ -1,13 +1,17 @@
 import React from 'react';
-import { Panel, Grid, Row, Col } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
 import './App.css';
 
+import Tasting from './containers/Tasting';
 function App() {
 	return (
 		<div className="App">
-	
+		<Tasting/>
+		<Panel header="Tasting with thought">
+
+		</Panel>
 		</div>
-	);
+		);
 }
 
 export default App;

@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import tasting from './tasting';
-import component from './component';
+import rating from './rating';
 
-const wine_notes = combineReducers({
-	component,
-	tasting
+const index = combineReducers({
+	rating
 });
 
-export default wine_notes;
+export default index;

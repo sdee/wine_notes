@@ -8,9 +8,19 @@ import rootReducer from './reducers/index';
 import App from './App';
 import './index.css';
 
-const store = createStore(rootReducer,
+const wine_components= require('../data/wine.json');
+
+const store = createStore(rootReducer, initializeState(),
 	composeWithDevTools(applyMiddleware(thunk))
 );
+
+function initializeState() {
+	let ratings = {};
+	wine_components.forEach(function(wc) { 
+		ratings[wc] = 0;
+	});
+	return {"rating": ratings};
+}
 
 render(
 	<Provider store={store}>
@@ -18,3 +28,5 @@ render(
 	</Provider>,
 	document.getElementById('root')
 );
+
+

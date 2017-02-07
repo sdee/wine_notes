@@ -1,8 +1,10 @@
-import { SET_COMPONENT } from '../actions';
+import { SET_RATING } from '../actions';
 
-const component = (state = {}, action) => {
+const rating = (state = {}, action) => {
+	console.log("inside component");
+	console.log(state);
 	switch (action.type) {
-		case SET_COMPONENT: {
+		case SET_RATING: {
 			const newState = Object.assign({}, state, {});
 			newState[action.component] = action.rating;
 			return newState;
@@ -13,4 +15,4 @@ const component = (state = {}, action) => {
 	}
 };
 
-export default component;
+export default rating;
