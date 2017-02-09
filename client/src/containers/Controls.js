@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import SliderPanel from '../components/SliderPanel';
+import { setRating } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -9,8 +10,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    
+  return { 
+    onMoveSlider: (component, status) => { dispatch(setRating(component, status)) }
   }
 }
 

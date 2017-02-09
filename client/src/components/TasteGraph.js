@@ -3,14 +3,10 @@ import Slider from './Slider.js';
 import { Panel, Grid, Row, Col } from 'react-bootstrap';
 
 function TasteGraph(props) {
-	console.log("inside tastegraph");
-	console.log(props)
-	console.log(props.rating);
-	//loop through and output one slider and one value per component
-	console.log("--------");
-	var msg = [];
-	console.log(props.rating);
 
+	//loop through and output one slider and one value per component
+
+	var msg = [];
 	return (
 		<div>
 		<Grid>

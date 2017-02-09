@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
 import { Panel, Grid, Row, Col } from 'react-bootstrap';
 
-function Slider({ name, value }) {
+function Slider( {name, value, onMoveSlider} ) {
 	return (
 		<Row className="show-grid">
 			<Col md={2}>
@@ -11,10 +11,12 @@ function Slider({ name, value }) {
 			<Col md={3}>		
 			<ReactBootstrapSlider
 				value={value}
-				change={valueChanged}
+				slideStop={valueChanged}
 				min={0}
 				max={10}
-				orientation="horizontal" />
+				orientation="horizontal"
+				name={name} 
+				f={onMoveSlider}/>
 			</Col>
 			<Col md={2}>
 				{value}
@@ -26,10 +28,18 @@ function Slider({ name, value }) {
 Slider.propTypes = {
 	name: PropTypes.string.isRequired,
 	value: PropTypes.number.isRequired,
+	onMoveSlider:PropTypes.func.isRequired
 };
 
 function valueChanged(event) {
 	console.log("value changed");
+	console.log(event);
+	console.log(event.target.value);
+	console.log(this.name);
+	console.log(this);
+	console.log(this.f);
+	this.f(this.name, event.target.value);
+
 }
 
 export default Slider;

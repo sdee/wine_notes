@@ -1,20 +1,17 @@
 import React, {PropTypes} from 'react';
 import Slider from './Slider.js';
 import { Panel, Grid, Row, Col } from 'react-bootstrap';
+import _ from 'underscore';
 
-function SliderPanel(props) {
-	console.log("inside SliderPanel");
-	console.log(props)
-	console.log(props.rating);
-	//loop through and output one slider and one value per component
-	console.log("--------");
+function SliderPanel({ rating, onMoveSlider }) { ///was props
+	var f = onMoveSlider;
 	var msg = [];
-	console.log(props.rating);
-
-	props.rating.forEach(function(r){
+	_.values(rating).forEach(function(r){
 		msg.push(
 			<div>
-			<Slider name={r.name} value={r.quantity}/>
+			<Slider name={r.name} 
+				value={r.quantity} 
+				onMoveSlider={f}/>
 			</div>
 			);
 	});
@@ -26,7 +23,6 @@ function SliderPanel(props) {
 		</Grid>
 		</div>
 		);
-
 }
 SliderPanel.propTypes = {
 	rating: PropTypes.array
