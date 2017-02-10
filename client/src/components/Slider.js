@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
-import { Panel, Grid, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 function Slider( {name, value, onMoveSlider} ) {
 	return (
@@ -33,7 +33,6 @@ Slider.propTypes = {
 
 function valueChanged(event) {
 	this.f(this.name, event.target.value);
-
 }
 
 export default Slider;

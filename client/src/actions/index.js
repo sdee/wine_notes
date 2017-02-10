@@ -1,6 +1,4 @@
-import { Provider } from 'react-redux'
-import index from '../reducers'
-import { createStore } from 'redux'
+
 /*
  * action types
  */

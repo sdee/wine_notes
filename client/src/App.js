@@ -8,10 +8,10 @@ import Controls from './containers/Controls';
 function App() {
 	return (
 		<div className="App">
-		<Panel header="Tasting with thought">
-		<Tasting/>
-		<Controls/>
-		</Panel>
+			<Panel header="Tasting with thought">
+				<Tasting/>
+				<Controls/>
+			</Panel>
 		</div>
 		);
 }
