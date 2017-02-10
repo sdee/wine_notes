@@ -2,16 +2,16 @@ import React, {PropTypes} from 'react';
 import Slider from './Slider.js';
 import { Panel, Grid, Row, Col } from 'react-bootstrap';
 
-function TasteGraph(props) {
+function TasteGraph({rating}) {
 
 	//loop through and output one slider and one value per component
 
 	var msg = [];
 	return (
 		<div>
-		<Grid>
-		{msg}
-		</Grid>
+			<Grid>
+				{msg}
+			</Grid>
 		</div>
 		);
 
