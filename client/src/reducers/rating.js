@@ -1,6 +1,5 @@
 import { SET_RATING } from '../actions';
 
-
 const rating = (state = {}, action) => {
 	switch (action.type) {
 		case SET_RATING: {

@@ -5,6 +5,7 @@ import { Grid } from 'react-bootstrap';
 function SliderPanel({ rating, onMoveSlider }) { ///was props
 	var f = onMoveSlider;
 	var msg = [];
+	
 	rating.forEach(function(r){
 		msg.push(
 			<div>
