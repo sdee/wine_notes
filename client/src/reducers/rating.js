@@ -18,5 +18,3 @@ const rating = (state = {}, action) => {
 };
 
 export default rating;
-
-//don't want object of object for state want array!!!!

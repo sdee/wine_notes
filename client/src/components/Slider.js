@@ -8,14 +8,14 @@ function Slider( {name, value, onMoveSlider} ) {
 			<Col md={2}>
 				{name}
 			</Col>
-			<Col md={3}>		
+			<Col md={3}>
 			<ReactBootstrapSlider
 				value={value}
 				slideStop={valueChanged}
 				min={0}
 				max={10}
 				orientation="horizontal"
-				name={name} 
+				name={name}
 				f={onMoveSlider}/>
 			</Col>
 			<Col md={2}>
@@ -32,6 +32,9 @@ Slider.propTypes = {
 };
 
 function valueChanged(event) {
+	console.log("EVENT");
+	console.log(this.name);
+	console.log(event);
 	this.f(this.name, event.target.value);
 }
 
