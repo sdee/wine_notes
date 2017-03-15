@@ -1,5 +1,7 @@
 var Tasting = require('../models/tasting');
 
+var async = require('async')
+
 exports.index = function(req, res, next) {
     res.send('NOT IMPLEMENTED: Site Home Page');
 };
@@ -16,5 +18,12 @@ exports.tasting_create_get = function(req, res, next) {
 
 // Handle tasting create on POST
 exports.tasting_create_post = function(req, res, next) {
-    res.send('NOT IMPLEMENTED: Tasting create POST');
+	req.checkBody('berry', 'berry must not be empty.').notEmpty();
+	req.checkBody('citrus', 'citrus must not be empty').notEmpty();
+	var tasting = new Tasting(
+	{ berry: req.body.berry,
+		citrus: req.body.citrus
+	 });
+
+console.log('TASTING: '+tasting);
 };
