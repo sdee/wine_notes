@@ -1,4 +1,4 @@
-import { SET_RATING } from '../actions';
+import { SET_RATING, SAVE_TASTING } from '../actions';
 
 const rating = (state = {}, action) => {
 	switch (action.type) {
@@ -10,6 +10,9 @@ const rating = (state = {}, action) => {
 				};
 			});
 			return newState;
+		}
+		case SAVE_TASTING: {
+			console.log("save tasting>>>>");
 		}
 		default: {
 			return state;
