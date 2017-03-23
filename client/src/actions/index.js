@@ -14,7 +14,27 @@ export function setRating (component, status) {
 	return { type: SET_RATING, component, status };
 }
 
-export function saveTasting (component, status) {
-	console.log("saving");
-	return { type: SAVE_TASTING, component, status };
+export function saveTasting (rating) {
+	console.log("saving ...");
+	console.log(rating);
+	console.log(rating.berry);
+
+	let data = {};
+
+	rating.forEach(function(element) {
+    data[element.name] = element.quantity
+});
+console.log("DATA");
+
+console.log(data);
+
+	const url = 'api/tasting/create';
+	return (dispatch) => {
+		fetch(url, {
+			method: "post", body: JSON.stringify(data)
+		})
+		.then(response => response.json())
+		// .then(json => dispatch(loadQuizSuccess(json)))
+		.catch((error) => { console.log('request failed', error); });
+	};
 }

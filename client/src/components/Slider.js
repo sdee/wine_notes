@@ -32,9 +32,6 @@ Slider.propTypes = {
 };
 
 function valueChanged(event) {
-	console.log("EVENT");
-	console.log(this.name);
-	console.log(event);
 	this.f(this.name, event.target.value);
 }
 

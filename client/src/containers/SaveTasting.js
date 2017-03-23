@@ -8,15 +8,15 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mergeProps = (propsFromState, propsFromDispatch, ownProps) => {
+        const {rating} = propsFromState;
+        const { dispatch } = propsFromDispatch;
 
-    onClick: (e) => {
-      e.preventDefault();
-      dispatch(saveTasting(ownProps.rating));
-    }
+        return {
+         onClick: () => dispatch(saveTasting(rating))
+       };
+};
 
-});
-
-const SaveTasting = connect(mapStateToProps, mapDispatchToProps)(SaveButton);
+const SaveTasting = connect(mapStateToProps, null, mergeProps)(SaveButton);
 
 export default SaveTasting;

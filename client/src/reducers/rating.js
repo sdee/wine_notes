@@ -13,6 +13,7 @@ const rating = (state = {}, action) => {
 		}
 		case SAVE_TASTING: {
 			console.log("save tasting>>>>");
+			break;
 		}
 		default: {
 			return state;
