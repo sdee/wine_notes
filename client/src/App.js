@@ -4,6 +4,7 @@ import './App.css';
 
 import Tasting from './containers/Tasting';
 import Controls from './containers/Controls';
+import SaveTasting from './containers/SaveTasting';
 
 function App() {
 	return (
@@ -13,6 +14,9 @@ function App() {
 					<Row>
 						<Col xs={5}><Tasting/></Col>
 						<Col xs={6}><br/><br/><Controls/></Col>
+					</Row>
+					<Row>
+					<SaveTasting/>
 					</Row>
 				</Grid>
 			</Panel>
