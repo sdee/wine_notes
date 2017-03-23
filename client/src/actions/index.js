@@ -26,13 +26,14 @@ console.log("DATA");
 
 console.log(data);
 
-	const url = 'api/tasting/create';
+data = {"berry": 7, "citrus": 1}
+
+	const url = '/tasting/create';
 	return (dispatch) => {
 		fetch(url, {
 			method: "post", body: JSON.stringify(data)
 		})
-		.then(response => response.json())
-		// .then(json => dispatch(loadQuizSuccess(json)))
+		.then(response => { console.log(response); })
 		.catch((error) => { console.log('request failed', error); });
 	};
 }

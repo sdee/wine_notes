@@ -14,6 +14,8 @@ router.get('/', tasting_controller.index);
 // router.get('/book/create', book_controller.book_create_get);
 
 /* POST request for creating Book. */
-router.post('/tasting/create', tasting_controller.tasting_create_post);
+router.post('/create', tasting_controller.tasting_create_post);
+
+router.get('/create', tasting_controller.tasting_create_get);
 
 module.exports = router;

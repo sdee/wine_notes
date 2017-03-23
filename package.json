@@ -9,11 +9,13 @@
     ]
   },
   "scripts": {
-    "start": "npm run client",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node ./bin/www",
-    "client": "babel-node start-client.js"
+    "client": "babel-node ./start-client.js",
+    "postinstall": "cd client && npm install && npm run build"
   },
   "dependencies": {
+    "async": "^2.1.5",
     "babel-cli": "6.14.0",
     "babel-core": "6.14.0",
     "babel-plugin-transform-runtime": "^6.22.0",
@@ -27,6 +29,8 @@
     "ejs": "~2.5.2",
     "express": "^4.14.1",
     "fast-diff": "^1.1.1",
+    "jade": "^1.11.0",
+    "mongoose": "^4.9.1",
     "morgan": "~1.7.0",
     "react": "^15.4.2",
     "react-chartjs": "^0.8.0",
@@ -37,5 +41,8 @@
   },
   "devDependencies": {
     "concurrently": "^3.1.0"
+  },
+  "engines": {
+    "node": "6.9.x"
   }
 }
