@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var TastingSchema = Schema({
-  berry: {type: Number, required: true},
-	citrus: {type: Number, required: true},
+  berry: {type: Number},
+	citrus: {type: Number},
 	// stonefruit: {type: Number, required: true},
 	// grassy: {type: Number, required: true},
 	// floral: {type: Number, required: true},

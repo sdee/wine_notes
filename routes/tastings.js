@@ -8,7 +8,7 @@ var tasting_controller = require('../controllers/tastingController');
 /// BOOK ROUTES ///
 
 /* GET catalog home page. */
-router.get('/', tasting_controller.index);
+router.get('/', tasting_controller.tasting_list);
 
 // /* GET request for creating a Book. NOTE This must come before routes that display Book (uses id) */
 // router.get('/book/create', book_controller.book_create_get);
@@ -17,5 +17,8 @@ router.get('/', tasting_controller.index);
 router.post('/create', tasting_controller.tasting_create_post);
 
 router.get('/create', tasting_controller.tasting_create_get);
+
+// /* GET request for list of all Book. */
+// router.get('/', tasting_controller.tasting_list)
 
 module.exports = router;

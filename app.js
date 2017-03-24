@@ -15,7 +15,7 @@ var app = express();
 var mongoose = require('mongoose');
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/my_database';
+var mongoDB = 'mongodb://127.0.0.1/local';
 mongoose.connect(mongoDB);
 
 //Get the default connection

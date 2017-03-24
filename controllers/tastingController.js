@@ -8,7 +8,12 @@ exports.index = function(req, res, next) {
 
 // Display list of all tastings
 exports.tasting_list = function(req, res, next) {
-    res.send('NOT IMPLEMENTED: Tasting list');
+  Tasting.find({}, 'berry')
+   .exec(function (err, list_tastings) {
+     if (err) { return next(err); }
+     //Successful, so render
+     res.render('tasting_list', {tasting_list: list_tastings});
+   })
 };
 
 // Display tasting create form on GET
@@ -18,15 +23,17 @@ exports.tasting_create_get = function(req, res, next) {
 
 // Handle tasting create on POST
 exports.tasting_create_post = function(req, res, next) {
-	req.checkBody('berry', 'berry must not be empty.').notEmpty();
-	req.checkBody('citrus', 'citrus must not be empty').notEmpty();
+	// req.checkBody('berry', 'berry must not be empty.').notEmpty();
+	// req.checkBody('citrus', 'citrus must not be empty').notEmpty();
   console.log(">>>>>>>>>>>>>>>>>>>>>>>>");
+  console.log(req);
   console.log(req.body);
 	var tasting = new Tasting(
 	{ berry: req.body.berry,
 		citrus: req.body.citrus
 	 });
-   tasting.save();
-res.render('tasting_create');
-
-};
+   tasting.save(function (err) {
+     if (err) {res.send(err);}
+     res.render('tasting_create');
+   });
+}
