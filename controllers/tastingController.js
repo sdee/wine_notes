@@ -26,5 +26,7 @@ exports.tasting_create_post = function(req, res, next) {
 	{ berry: req.body.berry,
 		citrus: req.body.citrus
 	 });
-res.send('OK');
+   tasting.save();
+res.render('tasting_create');
+
 };
