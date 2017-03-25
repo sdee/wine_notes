@@ -2,9 +2,14 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var TastingSchema = Schema({
-  berry: {type: Number},
-	citrus: {type: Number},
+var TastingSchema = new Schema({
+	berry: Number,
+	citrus: Number
+});
+
+// var TastingSchema = Schema({
+//   berry: {type: Number},
+// 	citrus: {type: Number},
 	// stonefruit: {type: Number, required: true},
 	// grassy: {type: Number, required: true},
 	// floral: {type: Number, required: true},
@@ -17,6 +22,6 @@ var TastingSchema = Schema({
 	// body:  {type: Number, required: true},
 	// balance: {type: Number, required: true},
 	// finish: {type: Number, required: true}
-});
+// });
 
 module.exports = mongoose.model('Tasting', TastingSchema);
