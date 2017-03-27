@@ -8,7 +8,7 @@ exports.index = function(req, res, next) {
 
 // Display list of all tastings
 exports.tasting_list = function(req, res, next) {
-  Tasting.find({}, 'berry', 'citrus')
+  Tasting.find({}, 'berry citrus')
    .exec(function (err, list_tastings) {
      if (err) { return next(err); }
      //Successful, so render
@@ -22,16 +22,25 @@ exports.tasting_create_get = function(req, res, next) {
 };
 
 // Handle tasting create on POST
-exports.tasting_create_post = function(req, res, next) {
-	// req.checkBody('berry', 'berry must not be empty.').notEmpty();
-	// req.checkBody('citrus', 'citrus must not be empty').notEmpty();
+exports.tasting_create_post = function(req, res) {
+	req.checkBody('berry', 'berry must not be empty.').notEmpty();
+	req.checkBody('citrus', 'citrus must not be empty').notEmpty();
+
+  req.sanitize('berry').escape();
+  req.sanitize('citrus').escape();
+
+  let citrus = req.query.citrus;
+  let berry = req.query.berry;
+
+
   console.log(">>>>>>>>>>>>>>>>>>>>>>>>");
   console.log(req.body);
-  console.log(req.checkBody('citrus', 'citrus must not be empty').notEmpty());
+  console.log(berry);
+  console.log(citrus);
   console.log("======================");
 	var tasting = new Tasting(
-	{ berry: 1,
-		citrus: 3
+	{ berry: berry,
+		citrus: citrus
 	 });
    tasting.save(function (err) {
      if (err) {res.send(err);}

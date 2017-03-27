@@ -1,4 +1,4 @@
-
+const querystring = require('querystring');
 /*
  * action types
  */
@@ -22,16 +22,19 @@ export function saveTasting (rating) {
 	rating.forEach(function(element) {
     data[element.name] = element.quantity
 });
-console.log("DATA");
 
-console.log(data);
+querystring.stringify(data);
+console.log(querystring.stringify(data));
 
-data = {"berry": 7, "citrus": 1}
-
-	const url = '/tasting/create';
+	const url = '/tasting/create?'+querystring.stringify(data);
+;
 	return (dispatch) => {
 		fetch(url, {
-			method: "post", body: JSON.stringify(data)
+			method: 'POST',
+			body: JSON.stringify({
+	 berry: 6,
+	 citrus: 6
+ })
 		})
 		.then(response => { console.log(response); })
 		.catch((error) => { console.log('request failed', error); });
