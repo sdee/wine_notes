@@ -8,7 +8,7 @@ exports.index = function(req, res, next) {
 
 // Display list of all tastings
 exports.tasting_list = function(req, res, next) {
-  Tasting.find({}, 'berry citrus')
+  Tasting.find({}, 'berry citrus stonefruit grassy floral spicy mineral sweet sour woody tannic body balance finish')
    .exec(function (err, list_tastings) {
      if (err) { return next(err); }
      //Successful, so render
