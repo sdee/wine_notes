@@ -23,6 +23,7 @@ exports.tasting_create_get = function(req, res, next) {
 
 // Handle tasting create on POST
 exports.tasting_create_post = function(req, res) {
+
 	req.checkBody('berry', 'berry must not be empty.').notEmpty();
 	req.checkBody('citrus', 'citrus must not be empty').notEmpty();
 
@@ -31,16 +32,38 @@ exports.tasting_create_post = function(req, res) {
 
   let citrus = req.query.citrus;
   let berry = req.query.berry;
-
+  let stonefruit = req.query.stonefruit;
+  let grassy = req.query.grassy;
+  let floral = req.query.floral;
+  let spicy = req.query.spicy;
+  let mineral = req.query.mineral;
+  let sweet = req.query.sweet;
+  let sour = req.query.sour;
+  let woody = req.query.woody;
+  let tannic = req.query.tannic;
+  let body = req.query.bod;
+  let balance = req.query.balance;
+  let finish = req.query.finish;
 
   console.log(">>>>>>>>>>>>>>>>>>>>>>>>");
-  console.log(req.body);
   console.log(berry);
   console.log(citrus);
   console.log("======================");
 	var tasting = new Tasting(
-	{ berry: berry,
-		citrus: citrus
+	 {berry: berry,
+		citrus: citrus,
+    stonefruit: stonefruit,
+    grassy: grassy,
+    floral: floral,
+    spicy: spicy,
+    mineral: mineral,
+    sweet: sweet,
+    sour: sour,
+    woody: woody,
+    tannic: tannic,
+    body: body,
+    balance: balance,
+    finish: finish
 	 });
    tasting.save(function (err) {
      if (err) {res.send(err);}

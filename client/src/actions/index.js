@@ -30,11 +30,7 @@ console.log(querystring.stringify(data));
 ;
 	return (dispatch) => {
 		fetch(url, {
-			method: 'POST',
-			body: JSON.stringify({
-	 berry: 6,
-	 citrus: 6
- })
+			method: 'POST'
 		})
 		.then(response => { console.log(response); })
 		.catch((error) => { console.log('request failed', error); });
