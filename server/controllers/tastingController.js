@@ -39,7 +39,6 @@ exports.tasting_create_post = function(req, res) {
   req.checkBody('balance', 'balance must not be empty').notEmpty();
   req.checkBody('finish', 'finish must not be empty').notEmpty();
 
-
   req.sanitize('berry').escape();
   req.sanitize('citrus').escape();
   req.sanitize('stonefruit').escape();

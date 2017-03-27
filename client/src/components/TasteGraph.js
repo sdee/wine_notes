@@ -21,7 +21,9 @@ var chartOptions = {
 	scale: {
 		reverse: true,
 		ticks: {
-			beginAtZero: true
+			beginAtZero: false,
+			min: 1,
+			suggestedMin: 1
 		}
 	}
 };
@@ -35,9 +37,6 @@ function TasteGraph({rating}) {
 		labels.push(r.name);
 		data.push(r.quantity);
 	});
-	console.log(">>>>>>");
-	console.log(data);
-	console.log(labels);
 	chartData['labels']=labels;
 	chartData['datasets'][0]['data']=data;
 
