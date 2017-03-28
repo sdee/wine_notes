@@ -16,7 +16,8 @@ var TastingSchema = new Schema({
 	tannic: {type: Number, required: true},
 	body:  {type: Number, required: true},
 	balance: {type: Number, required: true},
-	finish: {type: Number, required: true}
-});
+	finish: {type: Number, required: true},
+},
+ { timestamps: { createdAt: 'created_at' } });
 
 module.exports = mongoose.model('Tasting', TastingSchema);

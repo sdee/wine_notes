@@ -21,6 +21,11 @@ exports.tasting_create_get = function(req, res, next) {
     res.send('NOT IMPLEMENTED: Tasting create GET');
 };
 
+// Display tasting create form on GET
+exports.tasting_most_recent = function(req, res, next) {
+    res.send('NOT IMPLEMENTED: Tasting most recent');
+};
+
 // Handle tasting create on POST
 exports.tasting_create_post = function(req, res) {
 
@@ -70,7 +75,8 @@ exports.tasting_create_post = function(req, res) {
   let finish = req.query.finish;
 
 	var tasting = new Tasting(
-	 {berry: berry,
+	 {
+    berry: berry,
 		citrus: citrus,
     stonefruit: stonefruit,
     grassy: grassy,
@@ -85,8 +91,10 @@ exports.tasting_create_post = function(req, res) {
     balance: balance,
     finish: finish
 	 });
+
    tasting.save(function (err) {
      if (err) {res.send(err);}
      res.render('tasting_create');
    });
+
 }

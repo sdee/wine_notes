@@ -8,7 +8,7 @@ exports.index = function(req, res, next) {
 
 // Display list of all tastings
 exports.tasting_list = function(req, res, next) {
-  Tasting.find({}, 'berry citrus stonefruit grassy floral spicy mineral sweet sour woody tannic body balance finish')
+  Tasting.find({}, 'berry citrus stonefruit grassy floral spicy mineral sweet sour woody tannic body balance finish created_at')
    .exec(function (err, list_tastings) {
      if (err) { return next(err); }
      //Successful, so render
@@ -19,6 +19,14 @@ exports.tasting_list = function(req, res, next) {
 // Display tasting create form on GET
 exports.tasting_create_get = function(req, res, next) {
     res.send('NOT IMPLEMENTED: Tasting create GET');
+};
+
+// Display tasting create form on GET
+exports.tasting_most_recent = function(req, res, next) {
+   Tasting.findOne({}, {}, { sort: { 'created_at' : -1 } }, function(err, tasting) {
+  console.log( tasting );
+  res.send('NOT IMPLEMENTED: Tasting most recent');
+});
 };
 
 // Handle tasting create on POST
@@ -45,10 +53,6 @@ exports.tasting_create_post = function(req, res) {
   let balance = req.query.balance;
   let finish = req.query.finish;
 
-  console.log(">>>>>>>>>>>>>>>>>>>>>>>>");
-  console.log(berry);
-  console.log(citrus);
-  console.log("======================");
 	var tasting = new Tasting(
 	 {berry: berry,
 		citrus: citrus,
@@ -65,6 +69,7 @@ exports.tasting_create_post = function(req, res) {
     balance: balance,
     finish: finish
 	 });
+
    tasting.save(function (err) {
      if (err) {res.send(err);}
      res.render('tasting_create');
