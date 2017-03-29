@@ -23,9 +23,10 @@ exports.tasting_create_get = function(req, res, next) {
 
 // Display tasting create form on GET
 exports.tasting_most_recent = function(req, res, next) {
-   Tasting.findOne({}, {}, { sort: { 'created_at' : -1 } }, function(err, tasting) {
-  console.log( tasting );
-  res.send('NOT IMPLEMENTED: Tasting most recent');
+  Tasting.findOne({}, {}, { sort: { 'created_at' : -1 } }, function(err, tasting) {
+  console.log("TASTING");
+  console.log(tasting);
+  res.json(tasting);
 });
 };
 
